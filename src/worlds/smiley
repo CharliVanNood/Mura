@@ -1,0 +1,80 @@
+P:2:1@
+G1:0:-2:1:1:N@
+GW1:2.5:-3:1:1:N@
+G1:10:-2:1:1:N@
+G1:2:2:1:1:N@
+G1:8:2:1:1:N@
+A:5:5:D@
+S:5:1:Congratulations!@
+
+G1:-3:8:1:1:N@
+G1:0:7:1:1:N@
+G1:5:7:1:1:N@
+B:0:10:D@
+B:5:10:D@
+B:10:10:D@
+G1:10:7:1:1:N@
+G1:13:8:1:1:N@
+
+GW1:7:-40:1:1:N@
+GW1:13:-40:1:1:N@
+S:18:-36:Didn't expect you here@#'@
+GW1:18:-40:1:1:N@
+S:23:-35.5:We've looking for you@#'@
+GW1:23:-40:1:1:N@
+S:28:-36:Our robots have been trying@
+S:28:-36.5:to track you down for years@
+GW1:28:-40:1:1:N@
+S:33:-35.5:We started project Mura@
+GW1:33:-40:1:1:N@
+S:38:-36:Why did you steal it@
+GW1:38:-40:1:1:N@
+S:43:-36:We made the technology@
+S:43:-36.5:to make black holes@
+S:43:-37:to change gravity@
+GW1:43:-40:1:1:N@
+S:49:-35.5:And yet...@
+GW1:48:-40:1:1:N@
+S:53:-36:...@
+GW1:53:-40:1:1:N@
+S:58:-36:You're the last human@#'@
+S:58:-36.5:on earth@
+GW1:58:-40:1:1:N@
+S:63:-36:You've got that going@#'@
+S:63:-36.5:If you even care@
+GW1:63:-40:1:1:N@
+S:68:-36:It was a paradise@
+S:68:-36.5:while you were gone@
+GW1:68:-40:1:1:N@
+S:73:-36:Just look how happy@
+S:73:-36.5:tony is@
+GW1:73:-40:1:1:N@
+
+G1:75:-30:1:1:N@
+G1:78:-31:1:1:N@
+B:78:-29:D@
+G1:83:-31:1:1:N@
+G1:86:-30:1:1:N@
+
+S:78:-35.5:I bet he can do that forever@
+GW1:78:-40:1:1:N@
+S:83:-36:He was human once@
+S:83:-36.5:But...@
+GW1:83:-40:1:1:N@
+S:88:-35.5:Let's not get into that now@#'@
+GW1:88:-40:1:1:N@
+S:93:-36:He's a roblot@#'@
+S:93:-36.5:Don't get empathetic now@#'@
+GW1:93:-40:1:1:N@
+S:98:-36:It's quite funny isn't it@
+GW1:98:-40:1:1:N@
+S:103:-36:The fact I'm preparing@#'@
+S:103:-36.5:Our next encounter@
+GW1:103:-40:1:1:N@
+S:108:-36:While you're just reading@#'@
+GW1:108:-40:1:1:N@
+S:113:-35.5:Did you really think this would be the end?@
+GW1:113:-40:1:1:N@
+
+I:126:-36@
+GW1:118:-40:1:1:N@

@@ -1,0 +1,81 @@
+P:2:1@
+
+#START platforms@
+G1:0:-2:1:1:ED@
+GW1:2.5:-3:1:1:ED@
+S:6:2.8:8:Use A D to move@
+S:6:2:8:and space to jump@
+G1:10:-4:1:1:ED@
+G1:10.5:-5:1:1:ED@
+G1:15:-4.25:1:1:ED@
+GW1:16:-3:1:1:ED@
+G1:18:-2:1:1:NO@
+A:22:0:D@
+S:24:4:11:Watch out, this might be dangerous@
+S:24.9:3.2:11:Use shift+D to sprint over it@
+GW1:23:-3:1:1:ED@
+GW1:29:-3:1:1:ED@
+
+
+#PORTALS@
+GW1:35:-1.5:1:1:ED@
+
+T:42:3:57:4.5@      #This creates a portal@
+S:45:5:13:This gap is too big to jump over@
+S:46:4.2:13:Let's try to use this portal@
+T:57:4.5:42:3@
+
+GW1:55:0:1:1:ED@
+GW1:60:-1:1:1:ED@
+GW1:65:-1:1:1:ED@
+GW1:70:-0:1:1:ED@
+
+S:83:6:12:Another dead end!@
+S:80:5.2:10:Perhaps we can use the platform above@
+S:80.5:4.4:10:Press arrow key up to defy gravity@
+
+#UPSIDE DOWN PLATFORM@
+GW1:75:12:1:1:EU@
+GW1:77:12:1:1:EU@
+GW1:80:11:1:1:EU@
+GW1:82:10:1:1:EU@
+
+S:95:6:5:Try to generally not touch any red stuff@
+S:97:5.2:5:It has a tendancy to kill you@
+
+G1:92:10:1:1:EU@
+G1:92:9:1:1:EU@
+GW1:92:9:1:1:EU@
+GW1:95:10:1:1:EU@
+GW1:100:10:1:1:EU@
+
+GW1:110:9:1:1:EU@
+GW1:115:8:1:1:EU@
+S:117:6:5:There must be a way@
+S:117:5.2:5:to get down again...@
+
+#ENDING@
+GW1:120:-1:1:1:ED@
+GW1:125:0:1:1:ED@
+GW1:130:1:1:1:ED@
+G1:135:1:0:1:ED@
+
+GW1:140:-1:1:1:ED@
+GW1:145:-1:1:1:ED@
+GW1:150:0:1:1:ED@
+GW1:155:1:1:1:ED@
+GW1:160:1:1:1:ED@
+GW1:165:0:1:1:ED@
+
+
+
+E:165:6@ #END@
+
+S:164.5:10.8:12.8:Good job!@
+S:163.5:10:12:Touch the flag to@
+S:163:9.2:11.2:go to the next level!@
+
+F:-30:-10:1:37@
+F:199:-10:1:37@
+F:-30:-10:230:1@
+F:-30:27:230:1@         #This is a fatal object@

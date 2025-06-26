@@ -25,6 +25,10 @@ quit_button_rect = pygame.Rect( WIDTH // 2 - 100 * scaleX, HEIGHT // 2 + 260 * s
 
 world_buttons = []
 
+play_button_hover = False
+edit_button_hover = False
+quit_button_hover = False
+
 naam_font = comic_sans
 namen = ["Ceren", "Charli", "Jens", "Mathijs", "Myla"]
 
@@ -68,6 +72,8 @@ def auteurs():
 
 # Startscherm wordt getekend.
 def draw_start_screen():
+    global play_button_hover, edit_button_hover, quit_button_hover
+
     screen.fill(DARK_BROWN)
     
     background_image = pygame.image.load("src/sprites/start.png").convert_alpha()
@@ -86,17 +92,26 @@ def draw_start_screen():
     background_rect = background_image.get_rect(center=(WIDTH // 2, HEIGHT // 2 - 50))
     screen.blit(background_image, background_rect)
 
-    pygame.draw.rect(screen, (255,255,255), button_rect)
+    if play_button_hover:
+        pygame.draw.rect(screen, (255,255,255), button_rect)
+    else:
+        pygame.draw.rect(screen, (200,200,200), button_rect)
     button_text = button_font.render('Start', True, DARK_BROWN)
     screen.blit(button_text, button_text.get_rect(center=button_rect.center))
 
     # edit button
-    pygame.draw.rect(screen, (255,255,255), edit_button_rect)
+    if edit_button_hover:
+        pygame.draw.rect(screen, (255,255,255), edit_button_rect)
+    else:
+        pygame.draw.rect(screen, (200,200,200), edit_button_rect)
     edit_text = button_font.render('Editor', True, DARK_BROWN)
     screen.blit(edit_text, edit_text.get_rect(center=edit_button_rect.center))
 
     # quit button
-    pygame.draw.rect(screen, (255,255,255), quit_button_rect)
+    if quit_button_hover:
+        pygame.draw.rect(screen, (255,255,255), quit_button_rect)
+    else:
+        pygame.draw.rect(screen, (200,200,200), quit_button_rect)
     quit_text = button_font.render('Quit', True, DARK_BROWN)
     screen.blit(quit_text, quit_text.get_rect(center=quit_button_rect.center))
 
@@ -146,6 +161,7 @@ def draw_start_screen():
 
 def start_screen(sound_engine):
     global SELECTED_MAP, scroll_offset
+    global play_button_hover, edit_button_hover, quit_button_hover
 
     sound_engine.play_music("music/8up9down.mp3")
     dragging_scrollbar = False
@@ -176,6 +192,8 @@ def start_screen(sound_engine):
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if button_rect.collidepoint(event.pos):
                     waiting = False
+                elif edit_button_rect.collidepoint(event.pos):
+                    print("EDITING :D")
                 elif quit_button_rect.collidepoint(event.pos):
                     pygame.quit()
                     sys.exit()
@@ -199,6 +217,10 @@ def start_screen(sound_engine):
                 dragging_scrollbar = False
 
             elif event.type == pygame.MOUSEMOTION:
+                play_button_hover = False
+                edit_button_hover = False
+                quit_button_hover = False
+
                 if dragging_scrollbar:
                     # Bereken nieuwe scrollbar-positie
                     new_y = event.pos[1] - scrollbar_click_offset
@@ -206,10 +228,17 @@ def start_screen(sound_engine):
                     scroll_offset = relative_scroll * total_height
                     scroll_offset = max(0, min(scroll_offset, max_offset))
                 else:
-                    for button in world_buttons:
-                        rect = button[0].copy()
-                        rect.y -= scroll_offset
-                        button[4] = rect.collidepoint(event.pos)
+                    if button_rect.collidepoint(event.pos):
+                        play_button_hover = True
+                    elif edit_button_rect.collidepoint(event.pos):
+                        edit_button_hover = True
+                    elif quit_button_rect.collidepoint(event.pos):
+                        quit_button_hover = True
+                    else:
+                        for button in world_buttons:
+                            rect = button[0].copy()
+                            rect.y -= scroll_offset
+                            button[4] = rect.collidepoint(event.pos)
 
             elif event.type == pygame.MOUSEWHEEL:
                 scroll_offset -= event.y * SCROLL_SPEED

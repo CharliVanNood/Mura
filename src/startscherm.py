@@ -193,7 +193,8 @@ def start_screen(sound_engine):
                 if button_rect.collidepoint(event.pos):
                     waiting = False
                 elif edit_button_rect.collidepoint(event.pos):
-                    print("EDITING :D")
+                    SELECTED_MAP = "EDITOR"
+                    waiting = False
                 elif quit_button_rect.collidepoint(event.pos):
                     pygame.quit()
                     sys.exit()

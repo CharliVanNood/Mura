@@ -10,9 +10,19 @@ class World():
         self.current_world = None
         self.physics_engine = physics_engine
         self.sound_engine = sound_engine
+        self.editor = False
 
     def load_world(self, world):
+        if world == "EDITOR":
+            self.entities = [Player(
+                    "Player", 0, (0, 0), self.physics_engine).set_sprite_image("src/sprites/player_test_sprite.png"
+                )]
+            self.current_world = world
+            self.editor = True
+            return
+
         self.current_world = world
+
         world_data = ""
         with open("src/worlds/" + world) as f:
             world_data = f.read()

@@ -32,54 +32,57 @@ window.fill((0, 0, 0))
 clock = pygame.time.Clock()
 physics_engine = PhysicsEngine(sound_engine)
 
-# Level caching code
-sound_engine.play_music("music/intro.wav")
-WIDTH, HEIGHT = window.get_size()
-scaleX = WIDTH / 1920
-scaleY = HEIGHT / 1080
-x_offset = 15 * scaleX
-y_offset =  15 * scaleY
-i = 0
+def cache_levels():
+    # Level caching code
+    sound_engine.play_music("music/intro.wav")
+    WIDTH, HEIGHT = window.get_size()
+    scaleX = WIDTH / 1920
+    scaleY = HEIGHT / 1080
+    x_offset = 15 * scaleX
+    y_offset =  15 * scaleY
+    i = 0
 
-background_image = pygame.image.load("src/sprites/start.png").convert_alpha()
-background_image = pygame.transform.scale(
-    background_image,
-    (WIDTH, HEIGHT)
-)
-background_rect = background_image.get_rect(topleft=(0, 0))
-window.blit(background_image, background_rect)
+    background_image = pygame.image.load("src/sprites/start.png").convert_alpha()
+    background_image = pygame.transform.scale(
+        background_image,
+        (WIDTH, HEIGHT)
+    )
+    background_rect = background_image.get_rect(topleft=(0, 0))
+    window.blit(background_image, background_rect)
 
-world_name = comic_sans.render("Creating Level Caches", True, (0, 0, 0))
-world_rect = world_name.get_rect(topleft=(x_offset, y_offset))
-window.blit(world_name, world_rect)
-pygame.display.flip()
+    world_name = comic_sans.render("Creating Level Caches", True, (0, 0, 0))
+    world_rect = world_name.get_rect(topleft=(x_offset, y_offset))
+    window.blit(world_name, world_rect)
+    pygame.display.flip()
 
-for world in os.listdir("src/worlds"):
-    physics_engine.world.load_world(world)
-    world_name = comic_sans.render(world + " Has been cached", True, (50, 50, 50))
+    for world in os.listdir("src/worlds"):
+        physics_engine.world.load_world(world)
+        world_name = comic_sans.render(world + " Has been cached", True, (50, 50, 50))
+        world_rect = world_name.get_rect(topleft=(x_offset, y_offset + i * 30 * scaleY + 40))
+        window.blit(world_name, world_rect)
+        pygame.display.flip()
+        i += 1
+
+    world_name = comic_sans.render("Joining World", True, (0, 0, 0))
     world_rect = world_name.get_rect(topleft=(x_offset, y_offset + i * 30 * scaleY + 40))
     window.blit(world_name, world_rect)
     pygame.display.flip()
-    i += 1
 
-world_name = comic_sans.render("Joining World", True, (0, 0, 0))
-world_rect = world_name.get_rect(topleft=(x_offset, y_offset + i * 30 * scaleY + 80))
-window.blit(world_name, world_rect)
-pygame.display.flip()
+    rect_color = (0, 0, 0, int(256 / 16))
+    rect_surface = pygame.Surface((WIDTH, HEIGHT), pygame.SRCALPHA)
+    pygame.draw.rect(rect_surface, rect_color, rect_surface.get_rect())
+    volume = 1
+    for i in range(int(256 / 4)):
+        window.blit(rect_surface, (0, 0))
+        pygame.display.flip()
+        volume -= 1 / (256 / 16)
+        sound_engine.set_volume(volume)
+        sleep(0.05)
+    sound_engine.stop_music()
+    sound_engine.set_volume(0.5)
 
-rect_color = (0, 0, 0, int(256 / 8))
-rect_surface = pygame.Surface((WIDTH, HEIGHT), pygame.SRCALPHA)
-pygame.draw.rect(rect_surface, rect_color, rect_surface.get_rect())
-volume = 1
-for i in range(int(256 / 8)):
-    window.blit(rect_surface, (0, 0))
-    pygame.display.flip()
-    volume -= 1 / (256 / 8)
-    sound_engine.set_volume(volume)
-    sleep(0.1)
-sound_engine.stop_music()
-sound_engine.set_volume(0.5)
-# Level caching code end
+if SELECTED_MAP != "EDITOR":
+    cache_levels()
 
 physics_engine.world.load_world(SELECTED_MAP)
 physics_engine.player = physics_engine.world.get_entity("Player")

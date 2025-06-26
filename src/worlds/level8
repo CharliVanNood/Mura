@@ -1,0 +1,118 @@
+P:1:3@ #PLAYER STARTING PLACE@
+#P:1:-2@
+#P:-29:2@
+
+# ANTI CHEAT@
+
+
+# First row@
+G1:-2:0:1:1:NO@
+F:2:2:2:1@
+
+G1:3:2:1:1:NO@
+F:8:4:1:1@
+
+G1:8:4:1:1:NO@
+# portal to avoid once on third block first row @
+T:9:8:14:36@
+T:10:8:14:36@
+T:11:8:16:38@
+
+G1:13:6:1:1:NO@
+# portal to fall from above on fourth block first row @
+T:14:10:14:4@
+T:16:10:14:4@
+# finish on wrong side of 4th block
+
+# Death row@
+F:-4:10:7:1:N@
+
+# two vertical lines of first shape@
+F:3:8:1:5:N@
+F:8:8:1:5:N@
+
+# Bits to annoy you on first shape@
+F:5:8:1:1:N@
+F:5.5:7:1:1:N@
+F:5.5:6:1:1:N@
+F:7:12:1:1:N@
+F:4:12:1:1:N@
+
+#vertical lines of second shape@
+F:13:10:1:2:N@
+F:17:10:1:2:N@
+
+# Bits to annoy you on second shape@
+F:12.5:10:1:1:N@
+F:17.5:10:1:1:N@
+
+# portal on death row@
+T:4:9:12:14@
+
+# Second row@
+# G1:13:14:1:1:NO@
+G1:8:14:1:1:NO@
+G1:3:18:1:1:NO@
+# G1:-2:20:1:1:NO@
+
+# SECOND PHASE @
+
+GW1:-10:0:1:1:NO@
+
+# ENTITY WITH PORTALS AS EYES@
+
+# BODY @
+G1: -7:1:1:2:NO@
+G1: -7:3:1:2:NO@
+G1: -7:5:1:2:NO@
+G1: -7:7:1:2:NO@
+G1: -5:1:1:2:NO@
+G1: -5:3:1:2:NO@
+G1: -9:1:1:2:NO@
+G1: -9:3:1:2:NO@
+
+# EYES @
+T:-3.8:13:1:3@
+T:-6:13:1:3@
+
+# ARMS @
+G1:-12:6:1:1:N@
+G1:-2:6:1:1:N@
+
+# LEFT FOOT @
+G1:-12:0:1:1:NO@
+
+
+# block to spawn on for editing@
+G1:-2:-6:1:1:NO@
+
+# Army floor @
+G1:-27:-6:1:1:NO@
+G1:-31:-6:1:1:NO@
+G1:-35:-6:1:1:NO@
+G1:-39:-6:1:1:NO@
+G1:-43:-6:1:1:NO@
+G1:-47:-6:1:1:NO@
+G1: -22:-1.5:1:1:ED@
+G1: -25.5:-4:1:1:NO@
+G1: -24.5:-3.5:1:1:NO@
+G1: -30:-1.5:1:1:EU@
+G1: -33:-1.5:1:1:NO@
+G1: -36:-1.5:1:1:NO@
+G1: -38:-1.5:1:1:EU@
+G1: -47:-1.5:1:1:NO@
+G1: -47:-2.5:1:1:NO@
+G1: -47:-3.5:1:1:ED@
+
+# ARMY @
+B:-37:2:D@
+A:-37:1:D@
+
+A:-37:-3:D@
+
+
+# LAST PORTAL@
+S:-44:4:10:DO NOT JUMP INTO!@
+T: -41:0:1:-8@
+
+E:0:-6@ #END@

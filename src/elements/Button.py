@@ -22,6 +22,10 @@ class Button:
         self.callback = callback
         self.callback_args = args
         return self
+    
+    def setSize(self, x, y):
+        self.size.set(x, y)
+        return self
 
     def runCallback(self):
         if self.callback:

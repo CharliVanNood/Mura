@@ -14,10 +14,9 @@ class World():
         self.editor = False
 
     def addObject(self, gameobject, x = None, y = None, sx = 1, sy = 1):
-        if x == None: x = self.physics_engine.player.position.getX()
-        if y == None: y = self.physics_engine.player.position.getY()
-        
         if gameobject == "ground1":
+            if x == None: x = self.physics_engine.player.position.getX() - 2.5
+            if y == None: y = self.physics_engine.player.position.getY() - 2
             self.entities.insert(
                 0,
                 Entity("GroundCollider", 0, (
@@ -40,7 +39,7 @@ class World():
                 Player("Player", 0, (0, 0), self.physics_engine).setSize(0.1, 0.1).setColor(255, 255, 255)
             ]
             self.buttons = [
-                Button(10, 10, "Add Ground").setCallback(self.addObject, ["ground1"])
+                Button(20, 20, "Add Ground").setSize(70, 40).setCallback(self.addObject, ["ground1"])
             ]
             self.current_world = world
             self.editor = True

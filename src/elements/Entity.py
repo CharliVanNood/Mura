@@ -5,12 +5,12 @@ import os
 import math
 import random
 from src.utils.font import comic_sans
+from src.config import TILESIZE
 
 portal_sprite_path = os.path.join(os.path.dirname(__file__), '..', 'sprites', 'portal_sprite_test.webp')
 portal_sprite = os.path.normpath(portal_sprite_path)
 finish_sprite_path = os.path.join(os.path.dirname(__file__), '..', 'sprites', 'finish.png')
 
-TILESIZE = 40
 SHAPES = {"rectangle": 0, "rect": 0, "circle": 1}
 
 class RGB:

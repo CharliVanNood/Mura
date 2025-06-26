@@ -1,6 +1,7 @@
 import pygame
 import os
-from src.config import World, TELEPORT_COOLDOWN
+from src.config import TELEPORT_COOLDOWN
+from src.world import World
 from src.fps import get_time_delta
 from src.elements.Entity import Player, Entity
 from src.startscherm import startScreen

@@ -6,15 +6,15 @@ def check_mouse_hit(mouse_x, mouse_y, obj_x1, obj_y1, obj_x2, obj_y2):
 
 def check_buttons_hover(physics_engine, mouse_x, mouse_y):
     for button in physics_engine.world.buttons:
-        button["hover"] = check_mouse_hit(mouse_x, mouse_y, button["pos"][0], button["pos"][1], button["pos"][0] + button["pos"][2], button["pos"][1] + button["pos"][3])
-        if not button["active"] and button["hover"]: button["color"] = (150, 150, 150)
-        elif not button["active"]: button["color"] = (200, 200, 200)
+        button.hover = check_mouse_hit(mouse_x, mouse_y, button.position.getX(), button.position.getY(), button.position.getX() + button.size.getX(), button.position.getY() + button.size.getY())
+        if not button.active and button.hover: button.color.setFromRGB(150, 150, 150)
+        elif not button.active: button.color.setFromRGB(200, 200, 200)
 
 def check_buttons_clicked(physics_engine, mouse_x, mouse_y):
     for button in physics_engine.world.buttons:
-        if check_mouse_hit(mouse_x, mouse_y, button["pos"][0], button["pos"][1], button["pos"][0] + button["pos"][2], button["pos"][1] + button["pos"][3]):
-            button["active"] = True
-            button["color"] = (100, 100, 100)
+        if check_mouse_hit(mouse_x, mouse_y, button.position.getX(), button.position.getY(), button.position.getX() + button.size.getX(), button.position.getY() + button.size.getY()):
+            print("clicked")
+            button.color.setFromRGB(200, 200, 200)
 
 # check player input and react accordingly
 def handle_player_input(events, physics_engine, sound_engine, particle_system, render):
@@ -27,6 +27,10 @@ def handle_player_input(events, physics_engine, sound_engine, particle_system, r
         if e.type == pygame.MOUSEMOTION:
             mouse_x, mouse_y = pygame.mouse.get_pos()
             check_buttons_hover(physics_engine, mouse_x, mouse_y)
+
+        if e.type == pygame.MOUSEBUTTONDOWN:
+            mouse_x, mouse_y = pygame.mouse.get_pos()
+            check_buttons_clicked(physics_engine, mouse_x, mouse_y)
 
         # particle test above player
         if keys[pygame.K_u]:

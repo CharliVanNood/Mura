@@ -1,6 +1,7 @@
 from src.elements.Entity import Entity, Player, Portal, TILESIZE, FinishFlag, FullFinishFlag, Enemy, JumpEnemy, Text, Tooltip
 from src.utils.font import comic_sans
 from src.bake import bake_textures
+from src.elements.Button import Button
 
 class World():
     def __init__(self, physics_engine, sound_engine):
@@ -17,6 +18,9 @@ class World():
             self.entities = [
                 Entity("PlayerSpawn", 0, (0, 0)).setColor(255, 0, 0).set_sprite_image("src/sprites/player_test_sprite.png"),
                 Player("Player", 0, (0, 0), self.physics_engine).setSize(0.1, 0.1).setColor(255, 255, 255)
+            ]
+            self.buttons = [
+                Button(10, 10, "Add Ground")
             ]
             self.current_world = world
             self.editor = True

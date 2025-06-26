@@ -23,7 +23,7 @@ class Render():
     # ---------------------------------- Dead Code? ----------------------------------
     def draw_buttons(self):
         for button in self.physics_engine.world.buttons:
-            pygame.draw.rect(self.window, button["color"], button["pos"])
+            pygame.draw.rect(self.window, button.color.get(), button.getPos())
 
     # updates and draws UI: FPS counter, names & buttons
     def draw_UI(self):

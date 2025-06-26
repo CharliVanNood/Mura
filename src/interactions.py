@@ -13,8 +13,8 @@ def check_buttons_hover(physics_engine, mouse_x, mouse_y):
 def check_buttons_clicked(physics_engine, mouse_x, mouse_y):
     for button in physics_engine.world.buttons:
         if check_mouse_hit(mouse_x, mouse_y, button.position.getX(), button.position.getY(), button.position.getX() + button.size.getX(), button.position.getY() + button.size.getY()):
-            print("clicked")
             button.color.setFromRGB(200, 200, 200)
+            button.runCallback()
 
 # check player input and react accordingly
 def handle_player_input(events, physics_engine, sound_engine, particle_system, render):

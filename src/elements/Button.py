@@ -11,6 +11,20 @@ class Button:
 
         self.text = text
         self.color = Color(255, 0, 0)
+
+        self.callback = None
+        self.callback_args = []
     
     def getPos(self):
         return (self.position.getX(), self.position.getY(), self.size.getX(), self.size.getY())
+    
+    def setCallback(self, callback, args=[]):
+        self.callback = callback
+        self.callback_args = args
+        return self
+
+    def runCallback(self):
+        if self.callback:
+            self.callback(*self.callback_args)
+        else:
+            print("This button does not have a callback yet")

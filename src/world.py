@@ -13,6 +13,26 @@ class World():
         self.sound_engine = sound_engine
         self.editor = False
 
+    def addObject(self, gameobject, x = None, y = None, sx = 1, sy = 1):
+        if x == None: x = self.physics_engine.player.position.getX()
+        if y == None: y = self.physics_engine.player.position.getY()
+        
+        if gameobject == "ground1":
+            self.entities.insert(
+                0,
+                Entity("GroundCollider", 0, (
+                    float(x) + 1, float(y) + 1
+                )).setColor(255, 0, 0).setSize(
+                    float(sx) * 5 - 2, float(sy) * 4 - 2
+                ).setTransparent(True)
+            )
+            self.entities.append(
+                Entity("Ground", 0, (
+                        float(x), float(y)
+                    )).setColor(255, 0, 0).setSize(
+                        float(sx) * 5, float(sy) * 4
+                    ).setCollide(False).set_sprite_image("src/sprites/ground_1.png"))
+
     def load_world(self, world):
         if world == "EDITOR":
             self.entities = [
@@ -20,7 +40,7 @@ class World():
                 Player("Player", 0, (0, 0), self.physics_engine).setSize(0.1, 0.1).setColor(255, 255, 255)
             ]
             self.buttons = [
-                Button(10, 10, "Add Ground")
+                Button(10, 10, "Add Ground").setCallback(self.addObject, ["ground1"])
             ]
             self.current_world = world
             self.editor = True

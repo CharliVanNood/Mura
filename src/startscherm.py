@@ -20,7 +20,8 @@ DARK_BROWN= (50, 50, 50)
 title_font = comic_sans_large
 button_font = comic_sans
 button_rect = pygame.Rect(WIDTH // 2 - 100 * scaleX, HEIGHT // 2 + 100 * scaleY, 200 * scaleX, 60 * scaleY)
-quit_button_rect = pygame.Rect( WIDTH // 2 - 100 * scaleX, HEIGHT // 2 + 180 * scaleY, 200 * scaleX, 60 * scaleY)
+edit_button_rect = pygame.Rect( WIDTH // 2 - 100 * scaleX, HEIGHT // 2 + 180 * scaleY, 200 * scaleX, 60 * scaleY)
+quit_button_rect = pygame.Rect( WIDTH // 2 - 100 * scaleX, HEIGHT // 2 + 260 * scaleY, 200 * scaleX, 60 * scaleY)
 
 world_buttons = []
 
@@ -88,6 +89,11 @@ def draw_start_screen():
     pygame.draw.rect(screen, (255,255,255), button_rect)
     button_text = button_font.render('Start', True, DARK_BROWN)
     screen.blit(button_text, button_text.get_rect(center=button_rect.center))
+
+    # edit button
+    pygame.draw.rect(screen, (255,255,255), edit_button_rect)
+    edit_text = button_font.render('Editor', True, DARK_BROWN)
+    screen.blit(edit_text, edit_text.get_rect(center=edit_button_rect.center))
 
     # quit button
     pygame.draw.rect(screen, (255,255,255), quit_button_rect)

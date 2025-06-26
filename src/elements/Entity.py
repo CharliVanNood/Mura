@@ -5,28 +5,14 @@ import os
 import math
 import random
 from src.utils.font import comic_sans
+from src.config import TILESIZE
+from src.utils.color import Color
 
 portal_sprite_path = os.path.join(os.path.dirname(__file__), '..', 'sprites', 'portal_sprite_test.webp')
 portal_sprite = os.path.normpath(portal_sprite_path)
 finish_sprite_path = os.path.join(os.path.dirname(__file__), '..', 'sprites', 'finish.png')
 
-TILESIZE = 40
 SHAPES = {"rectangle": 0, "rect": 0, "circle": 1}
-
-class RGB:
-    def __init__(self, r, g, b):
-        self.r = r
-        self.g = g
-        self.b = b
-
-    def setFromRGB(self, r, g, b):
-        self.r = r
-        self.g = g
-        self.b = b
-        return self
-
-    def get(self):
-        return (self.r, self.g, self.b)
 
 class Entity:
     """
@@ -42,7 +28,7 @@ class Entity:
         self.size = Vector2(1, 1)
         self.shape = shape
         self.weight = 1
-        self.color = RGB(100, 0, 200)
+        self.color = Color(100, 0, 200)
         self.transparent = False
         self.collide = True # this indicates if an item will collide
         self.anchored = True # this indicates if an item should move or not

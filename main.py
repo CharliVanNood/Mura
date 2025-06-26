@@ -8,7 +8,7 @@ print(f"[DEBUG] Current directory: {os.getcwd()}")
 
 from src.fps import render_fps
 from src.test import run_tests
-from src.config import World
+from src.world import World
 from src.render import Render
 from src.interactions import handle_player_input, pause
 from src.physics import PhysicsEngine

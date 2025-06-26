@@ -1,6 +1,7 @@
 import pygame
 import os
-from src.config import World, TELEPORT_COOLDOWN
+from src.config import TELEPORT_COOLDOWN
+from src.world import World
 from src.fps import get_time_delta
 from src.elements.Entity import Player, Entity
 from src.startscherm import startScreen
@@ -9,7 +10,6 @@ import math
 class PhysicsEngine:
     def __init__(self, sound_engine):
         self.world = World(self, sound_engine)
-        self.world.init_buttons()
         self.level_finished = False
         self.finish_time = None
         self.player = self.world.get_entity("Player")

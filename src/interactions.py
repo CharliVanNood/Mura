@@ -1,6 +1,5 @@
 import pygame
 from src.config import WALKING_SPEED
-from src.stip import Stip
 
 def check_mouse_hit(mouse_x, mouse_y, obj_x1, obj_y1, obj_x2, obj_y2):
     return mouse_x > obj_x1 and mouse_x < obj_x2 and mouse_y > obj_y1 and mouse_y < obj_y2
@@ -30,14 +29,6 @@ def handle_player_input(events, physics_engine, sound_engine, particle_system, r
         if e.type == pygame.MOUSEMOTION:
             mouse_x, mouse_y = pygame.mouse.get_pos()
             check_buttons_hover(physics_engine, mouse_x, mouse_y)
-
-        # stippen story from sprint 1
-        # if e.type == pygame.MOUSEBUTTONDOWN:
-        #     mouse_x, mouse_y = pygame.mouse.get_pos()
-        #     check_buttons_clicked(physics_engine, mouse_x, mouse_y)
-        #     if e.button == 3:
-        #         particle_system.emit((mouse_x, mouse_y), (255,0,0), 20) # particle test on mouse button
-        #         physics_engine.world.stippen.append(Stip(mouse_x, mouse_y))
 
         # particle test above player
         if keys[pygame.K_u]:

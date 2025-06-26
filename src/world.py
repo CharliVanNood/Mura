@@ -16,7 +16,7 @@ class World():
         if world == "EDITOR":
             self.entities = [
                 Entity("PlayerSpawn", 0, (0, 0)).setColor(255, 0, 0).set_sprite_image("src/sprites/player_test_sprite.png"),
-                Player("Player", 0, (0, 0), self.physics_engine).setSize(0, 0)
+                Player("Player", 0, (0, 0), self.physics_engine).setSize(0.1, 0.1).setColor(255, 255, 255)
             ]
             self.current_world = world
             self.editor = True

@@ -352,53 +352,53 @@ class PhysicsEngine:
         """
 
         keys = pygame.key.get_pressed()
-        #if keys[pygame.K_w]:
-        #    tempEntity = Entity("Player", 0, (
-        #                player.position.getX() + 0.5, player.position.getY() + speed + 1.5
-        #            )).setSize(0.1, 0.1).setColor(255, 0, 0)
-        #    if not self.is_clipping(tempEntity): player.position.add(0, speed)
+        if keys[pygame.K_w] and self.world.editor:
+            tempEntity = Entity("Player", 0, (
+                        player.position.getX() + 0.5, player.position.getY() + speed + 1.5
+                    )).setSize(0.1, 0.1).setColor(255, 0, 0)
+            if not self.is_clipping(tempEntity) or self.world.editor: player.position.add(0, speed)
 
         if keys[pygame.K_a]:
             tempEntity = Entity("Player", 0, (
                         player.position.getX() - speed - 0.25, player.position.getY() + 0.5
                     )).setSize(0.1, 0.1).setColor(255, 0, 0)
-            if not self.is_clipping(tempEntity):  player.position.add(-speed, 0)
+            if not self.is_clipping(tempEntity) or self.world.editor:  player.position.add(-speed, 0)
 
-        #if keys[pygame.K_s]:
-        #    tempEntity = Entity("Player", 0, (
-        #                player.position.getX() + 0.5, player.position.getY() - speed - 0.5
-        #            )).setSize(0.1, 0.1).setColor(255, 0, 0)
-        #    if not self.is_clipping(tempEntity): player.position.add(0, -speed)
+        if keys[pygame.K_s] and self.world.editor:
+            tempEntity = Entity("Player", 0, (
+                        player.position.getX() + 0.5, player.position.getY() - speed - 0.5
+                    )).setSize(0.1, 0.1).setColor(255, 0, 0)
+            if not self.is_clipping(tempEntity) or self.world.editor: player.position.add(0, -speed)
 
         if keys[pygame.K_d]:
             tempEntity = Entity("Player", 0, (
                         player.position.getX() - speed + 1.5, player.position.getY() + 0.5
                     )).setSize(0.1, 0.1).setColor(255, 0, 0)
-            if not self.is_clipping(tempEntity): player.position.add(speed, 0)
+            if not self.is_clipping(tempEntity) or self.world.editor: player.position.add(speed, 0)
 
-        #if keys[pygame.K_LSHIFT] and keys[pygame.K_w]:
-        #    tempEntity = Entity("Player", 0, (
-        #                player.position.getX() + 0.5, player.position.getY() + speed * 1.2 + 1.5
-        #            )).setSize(0.1, 0.1).setColor(255, 0, 0)
-        #    if not self.is_clipping(tempEntity): player.position.add(0, speed * 1.2)
+        if keys[pygame.K_LSHIFT] and keys[pygame.K_w] and self.world.editor:
+            tempEntity = Entity("Player", 0, (
+                        player.position.getX() + 0.5, player.position.getY() + speed * 1.2 + 1.5
+                    )).setSize(0.1, 0.1).setColor(255, 0, 0)
+            if not self.is_clipping(tempEntity) or self.world.editor: player.position.add(0, speed * 1.2)
 
         if keys[pygame.K_LSHIFT] and keys[pygame.K_a]:
             tempEntity = Entity("Player", 0, (
                         player.position.getX() - speed * 1.2 - 0.25, player.position.getY() + 0.5
                     )).setSize(0.1, 0.1).setColor(255, 0, 0)
-            if not self.is_clipping(tempEntity):  player.position.add(-speed * 1.2, 0)
+            if not self.is_clipping(tempEntity) or self.world.editor:  player.position.add(-speed * 1.2, 0)
 
-        #if keys[pygame.K_LSHIFT] and keys[pygame.K_s]:
-        #    tempEntity = Entity("Player", 0, (
-        #                player.position.getX() + 0.5, player.position.getY() - speed * 1.2 - 0.5
-        #            )).setSize(0.1, 0.1).setColor(255, 0, 0)
-        #    if not self.is_clipping(tempEntity): player.position.add(0, -speed * 1.2)
+        if keys[pygame.K_LSHIFT] and keys[pygame.K_s] and self.world.editor:
+            tempEntity = Entity("Player", 0, (
+                        player.position.getX() + 0.5, player.position.getY() - speed * 1.2 - 0.5
+                    )).setSize(0.1, 0.1).setColor(255, 0, 0)
+            if not self.is_clipping(tempEntity) or self.world.editor: player.position.add(0, -speed * 1.2)
 
         if keys[pygame.K_LSHIFT] and keys[pygame.K_d]:
             tempEntity = Entity("Player", 0, (
                         player.position.getX() - speed * 1.2 + 1.5, player.position.getY() + 0.5
                     )).setSize(0.1, 0.1).setColor(255, 0, 0)
-            if not self.is_clipping(tempEntity): player.position.add(speed * 1.2, 0)
+            if not self.is_clipping(tempEntity) or self.world.editor: player.position.add(speed * 1.2, 0)
 
     def is_clipping(self, entity):
         list_colliding_with = self.getCollisionsAA(entity, self.world.entities)

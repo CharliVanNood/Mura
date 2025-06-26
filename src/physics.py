@@ -9,7 +9,6 @@ import math
 class PhysicsEngine:
     def __init__(self, sound_engine):
         self.world = World(self, sound_engine)
-        self.world.init_buttons()
         self.level_finished = False
         self.finish_time = None
         self.player = self.world.get_entity("Player")

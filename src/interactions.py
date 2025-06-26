@@ -4,14 +4,12 @@ from src.config import WALKING_SPEED
 def check_mouse_hit(mouse_x, mouse_y, obj_x1, obj_y1, obj_x2, obj_y2):
     return mouse_x > obj_x1 and mouse_x < obj_x2 and mouse_y > obj_y1 and mouse_y < obj_y2
 
-# ---------------------------------- Dead Code? ----------------------------------
 def check_buttons_hover(physics_engine, mouse_x, mouse_y):
     for button in physics_engine.world.buttons:
         button["hover"] = check_mouse_hit(mouse_x, mouse_y, button["pos"][0], button["pos"][1], button["pos"][0] + button["pos"][2], button["pos"][1] + button["pos"][3])
         if not button["active"] and button["hover"]: button["color"] = (150, 150, 150)
         elif not button["active"]: button["color"] = (200, 200, 200)
 
-# ---------------------------------- Dead Code? ----------------------------------
 def check_buttons_clicked(physics_engine, mouse_x, mouse_y):
     for button in physics_engine.world.buttons:
         if check_mouse_hit(mouse_x, mouse_y, button["pos"][0], button["pos"][1], button["pos"][0] + button["pos"][2], button["pos"][1] + button["pos"][3]):
@@ -36,7 +34,6 @@ def handle_player_input(events, physics_engine, sound_engine, particle_system, r
 
     physics_engine.walk(player, WALKING_SPEED * render.deltatime)
     physics_engine.jump(player, sound_engine)
-    physics_engine.teleport(player)
     physics_engine.change_gravity(player)
     return True
 

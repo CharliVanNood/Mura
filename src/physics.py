@@ -432,26 +432,6 @@ class PhysicsEngine:
                 entity.setGravityDirection(0,-1)
                 entity.rotate_sprite(0)
 
-    # ---------------------------------- Dead Code? ----------------------------------
-    def teleport(self, entity):
-        """
-        Deze functie zorgt er voor dat het blokje geteleporteerd wordt.
-        key waarde 1: x=0,y=5
-        key waarde 2: x=5,y=0
-        key waarde 3: x=0,y=-5
-        key waarde 1: x=-5,y=0
-        :return:
-        """
-        keys = pygame.key.get_pressed()
-        if keys[pygame.K_1]:
-            entity.setPosition(0, 5)
-        if keys[pygame.K_2]:
-            entity.setPosition(5, 0)
-        if keys[pygame.K_3]:
-            entity.setPosition(0, -5)
-        if keys[pygame.K_4]:
-            entity.setPosition(-5, 0)
-
     def jump(self, entity, sound_engine):
         keys = pygame.key.get_pressed()
         if keys[pygame.K_SPACE]:

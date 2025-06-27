@@ -5,12 +5,8 @@ import os
 import math
 import random
 from src.utils.font import comic_sans
-from src.config import TILESIZE
+from src.config import TILESIZE, resource_path
 from src.utils.color import Color
-
-portal_sprite_path = os.path.join(os.path.dirname(__file__), '..', 'sprites', 'portal_sprite_test.webp')
-portal_sprite = os.path.normpath(portal_sprite_path)
-finish_sprite_path = os.path.join(os.path.dirname(__file__), '..', 'sprites', 'finish.png')
 
 SHAPES = {"rectangle": 0, "rect": 0, "circle": 1}
 
@@ -141,11 +137,11 @@ class Entity:
     def set_sprite_image(self, image_path):
         """Set a custom image for the entity sprite"""
         try:
-            self.sprite_image = pygame.image.load(image_path).convert_alpha()
-            self.sprite_name = image_path
+            self.sprite_image = pygame.image.load(resource_path(image_path)).convert_alpha()
+            self.sprite_name = resource_path(image_path)
             self.update_sprite()
         except pygame.error as e:
-            print(f"Could not load image: {image_path}. Error: {e}")
+            print(f"Could not load image: {resource_path(image_path)}. Error: {e}")
         return self
     
     def set_sprite_from_image(self, image):
@@ -164,7 +160,7 @@ class Entity:
             # Load all frames
             self.sprite_animation_sequence = []
             for sprite in range(amount):
-                image = pygame.image.load(animation_path + "/frame" + str(sprite) + ".png").convert_alpha()
+                image = pygame.image.load(resource_path(animation_path) + "/frame" + str(sprite) + ".png").convert_alpha()
                 image = pygame.transform.rotate(
                     image, rotation
                 )
@@ -172,10 +168,10 @@ class Entity:
 
             self.sprite_animation_frame = random.randint(0, len(self.sprite_animation_sequence) - 1)
             self.sprite_image = self.sprite_animation_sequence[self.sprite_animation_frame]
-            self.sprite_name = animation_path
+            self.sprite_name = resource_path(animation_path)
             self.update_sprite()
         except pygame.error as e:
-            print(f"Could not load frame in: {animation_path}. Error: {e}")
+            print(f"Could not load frame in: {resource_path(animation_path)}. Error: {e}")
         return self
 
     def update_animation(self):
@@ -358,7 +354,7 @@ class Portal(Entity):
     def __init__(self, name, shape, position, destination=(0, 0)):
         super().__init__(name, shape, position)
         self.destination = Vector2(destination[0], destination[1])
-        self.sprite_image = self.set_sprite_image(portal_sprite)
+        self.sprite_image = self.set_sprite_image(resource_path('src/sprites/portal_sprite_test.webp'))
 
     # determines where the player gets teleported to
     def setDestination(self, destination):
@@ -368,13 +364,13 @@ class Portal(Entity):
 class FinishFlag(Entity):
     def __init__(self, name, shape, position):
         super().__init__(name, shape, position)
-        self.sprite_image = self.set_sprite_image(finish_sprite_path)
+        self.sprite_image = self.set_sprite_image(resource_path('src/sprites/finish.png'))
         self.tag = "finish"
 
 class FullFinishFlag(Entity):
     def __init__(self, name, shape, position):
         super().__init__(name, shape, position)
-        self.sprite_image = self.set_sprite_image(finish_sprite_path)
+        self.sprite_image = self.set_sprite_image(resource_path('src/sprites/finish.png'))
         self.tag = "end"
         
 class Enemy(Entity):

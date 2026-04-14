@@ -177,3 +177,5 @@ cython_debug/
 .pypirc
 /score.txt
 /deaths.txt
+.vscode/ai_s2_conda.yaml
+.vscode/settings.json

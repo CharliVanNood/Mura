@@ -459,8 +459,8 @@ class PhysicsEngine:
             if entity.grounded:
                 entity.grounded = False
                 entity.addVelocity(
-                    -entity.gravity_direction.getX() * 0.284,
-                    -entity.gravity_direction.getY() * 0.284
+                    -entity.gravity_direction.getX() * 0.364,
+                    -entity.gravity_direction.getY() * 0.364
                 )
                 entity.setPosition(
                     entity.position.getX() + -entity.gravity_direction.getX() * 0.1,

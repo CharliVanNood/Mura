@@ -1,4 +1,5 @@
-# Game Development Project HU AI S2
+# ムラ『 MURA 』
+### Game Development Project HU AI S2
 
 
 Şeyma Ceren Yildirim 
@@ -20,6 +21,8 @@ Author of levels 3 & smiley
 Myla Berger 
 1882404 \
 Author of levels 1, 4 & 5
+
+**Bonus**: Level 8 by Meester David!
 
 <br/><br/>
 

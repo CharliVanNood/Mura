@@ -15,7 +15,7 @@ scaleX = WIDTH / 1920
 scaleY = HEIGHT / 1080
 
 ORANGE = (100, 100, 100)
-DARK_BROWN= (50, 50, 50)
+DARK_BROWN= (50, 50, 50, 0)
 
 title_font = comic_sans_large
 button_font = comic_sans

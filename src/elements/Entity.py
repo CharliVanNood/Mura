@@ -241,6 +241,7 @@ class Player(Entity):
         self.grounded = False
         self.alive = True
         self.score = loading_score()
+        self.ignore_jump_until_release = False
 
     def setVelocity(self, x, y):
         super().setVelocity(x, y)
@@ -303,6 +304,7 @@ class Player(Entity):
         self.alive = True
         self.fatal_object_colliding_with = False
         self.rotate_sprite(0)
+        self.ignore_jump_until_release = True
         return self
 
     def death_test(self):

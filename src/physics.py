@@ -454,13 +454,17 @@ class PhysicsEngine:
 
     def jump(self, entity, sound_engine):
         keys = pygame.key.get_pressed()
+        if entity.ignore_jump_until_release:
+            if not keys[pygame.K_SPACE]:
+                entity.ignore_jump_until_release = False
+            return
         if keys[pygame.K_SPACE]:
             #colliding_object = self.getCollisionsAA(entity, self.world.entities)
             if entity.grounded:
                 entity.grounded = False
                 entity.addVelocity(
                     -entity.gravity_direction.getX() * 0.364,
-                    -entity.gravity_direction.getY() * 0.364
+                    -entity.gravity_direction.getY() * 0.364 
                 )
                 entity.setPosition(
                     entity.position.getX() + -entity.gravity_direction.getX() * 0.1,

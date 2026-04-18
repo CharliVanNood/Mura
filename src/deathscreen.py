@@ -40,6 +40,10 @@ def show_death_screen(screen):
     quit_text_rect = quit_text.get_rect(center=quit_button.center)
     screen.blit(quit_text, quit_text_rect)
 
+    # Press SPACE to respawn text
+    space_text = comic_sans.render('Or press SPACE to respawn', True, (200, 200, 200))
+    space_rect = space_text.get_rect(center=(WIDTH // 2, HEIGHT // 2 + 220))
+    screen.blit(space_text, space_rect)
 
     #death counter
     with open ("deaths.txt", 'r') as f:
